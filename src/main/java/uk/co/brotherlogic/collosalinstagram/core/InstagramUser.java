@@ -74,8 +74,6 @@ public class InstagramUser
       {
          e.printStackTrace();
       }
-
-      System.out.println(id);
    }
 
    public Room buildRooms()
@@ -94,13 +92,10 @@ public class InstagramUser
 
       for (int i = 1; i < photos.size(); i++)
       {
-         System.out.println(i + " / " + photos.size());
-
          Room newRoom = new Room(photos.get(i), new TreeMap<String, Room>());
-         System.out.println(currRoom.getFreeDirections().size());
          while (currRoom.getFreeDirections().size() == 0)
          {
-            List<String> nDirections = currRoom.getFreeDirections();
+            List<String> nDirections = new LinkedList<String>(currRoom.links.keySet());
             Collections.shuffle(nDirections);
             currRoom = currRoom.traverse(nDirections.get(0));
          }

@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -50,7 +51,8 @@ public class MainDisplay extends JPanel
 {
    public static void main(String[] args)
    {
-      InstagramUser user = new InstagramUser("brotherlogic");
+      String userName = JOptionPane.showInputDialog("Instagram Name:");
+      InstagramUser user = new InstagramUser(userName);
       MainDisplay display = new MainDisplay(user.buildRooms());
       JFrame framer = new JFrame();
       framer.add(display);
