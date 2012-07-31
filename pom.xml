@@ -4,8 +4,8 @@
   <artifactId>collosalinstagram</artifactId>
   <packaging>jar</packaging>
   <version>0.1-SNAPSHOT</version>
-  <name>prebuilder</name>
-  <url>prebuilder://maven.apache.org</url>
+  <name>collosalinstagram</name>
+  <url>collosalinstagram://maven.apache.org</url>
 
     
   <dependencies>
@@ -22,7 +22,12 @@
       <artifactId>scribe</artifactId>
       <version>1.3.1</version>
     </dependency>
-    
+
+    <dependency>
+      <groupId>com.googlecode.json-simple</groupId>
+      <artifactId>json-simple</artifactId>
+      <version>1.1</version>
+    </dependency>
 
   </dependencies>
   
@@ -39,7 +44,39 @@
           <target>1.6</target>
 	</configuration>
       </plugin>
+      
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>     
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <mainClass>uk.co.brotherlogic.collosalinstagram.view.MainDisplay</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+
+      <plugin>
+	<groupId>org.codehaus.mojo</groupId>
+	<artifactId>exec-maven-plugin</artifactId>
+	<version>1.2</version>
+	<executions>
+	  <execution>
+	    <goals>
+	      <goal>exec</goal>
+	    </goals>
+	  </execution>
+	</executions>
+	<configuration>
+	  <mainClass>uk.co.brotherlogic.collosalinstagram.view.MainDisplay</mainClass>
+	</configuration>
+      </plugin>
     </plugins>
+
   </build>
   
   
