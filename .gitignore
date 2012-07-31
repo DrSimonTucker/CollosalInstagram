@@ -1,0 +1,13 @@
+.classpath
+.project
+.fbprefs
+.settings
+target
+*~
+.checkstyle
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
