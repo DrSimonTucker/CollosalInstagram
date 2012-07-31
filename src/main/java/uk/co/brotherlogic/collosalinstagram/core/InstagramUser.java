@@ -81,9 +81,7 @@ public class InstagramUser
    public Room buildRooms()
    {
       buildImages();
-
-      String[] directions = new String[]
-      { "East", "West", "North", "South" };
+      Collections.shuffle(photos);
 
       Map<String, String> reverseMap = new TreeMap<String, String>();
       reverseMap.put("East", "West");
@@ -113,7 +111,10 @@ public class InstagramUser
          currRoom.addTraverse(direction, newRoom);
          newRoom.addTraverse(reverseMap.get(direction), currRoom);
 
-         currRoom = newRoom;
+         // 50% chance we stay where we are
+         if (Math.random() > 0.5)
+            currRoom = newRoom;
+
       }
 
       return firstRoom;

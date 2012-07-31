@@ -57,6 +57,7 @@ public class MainDisplay extends JPanel
       framer.pack();
       framer.setLocationRelativeTo(null);
       framer.setVisible(true);
+      framer.setExtendedState(JFrame.MAXIMIZED_BOTH);
    }
 
    Room currRoom;
